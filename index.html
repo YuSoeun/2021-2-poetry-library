@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,
+    h1 {
+        font-family: "Montserrat", sans-serif
+    }
+
+    img {
+        margin-bottom: -7px
+    }
+
+    .w3-row-padding img {
+        margin-bottom: 12px
+    }
+    p {
+         text-align: center;
+    }
+</style>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()"
+            class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
+            <i class="fa fa-remove"></i>
+        </a>
+        <div class="w3-bar-block w3-center">
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">종류</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">주제</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">시인</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">국가</a>
+        </div>
+    </nav>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-content" style="max-width:1500px">
+
+        <!-- Header -->
+        <div class="w3-opacity">
+            <span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+            <div class="w3-clear"></div>
+            <header class="w3-center w3-margin-bottom">
+                <p><b>나만의 시로 가는 버튼</b></p>
+                <h1><b>詩集文庫</b></h1>
+                <p><b>시집문고 - 시를 좋아하는 당신을 위한 공간 (여기 설명설명)</b></p>
+                <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">처음 오셨나요?  버튼을 누르시면 상세 페이지로 이동합니다.
+                        </button></p>
+            </header>
+        </div>
+
+        <div>
+            <p><b>검색 기능 추가</b></p>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="w3-row" id="myGrid" style="margin-bottom:128px">
+            <div class="w3-third">
+                <img src="src/rocks.jpeg" style="width:100%">
+                <p>돌</p>
+                <img src="src/sound.jpeg" style="width:100%">
+                <p>소리</p>
+                <img src="src/woods.jpeg" style="width:100%">
+                <img src="src/rock.jpeg" style="width:100%">
+                <img src="src/nature.jpeg" style="width:100%">
+                <img src="src/mist.jpeg" style="width:100%">
+            </div>
+
+            <div class="w3-third">
+                <img src="src/coffee.jpeg" style="width:100%">
+                <img src="src/bridge.jpeg" style="width:100%">
+                <img src="src/notebook.jpeg" style="width:100%">
+                <img src="src/london.jpeg" style="width:100%">
+                <img src="src/rocks.jpeg" style="width:100%">
+                <img src="src/avatar_g.jpeg" style="width:100%">
+            </div>
+
+            <div class="w3-third">
+                <img src="src/mist.jpeg" style="width:100%">
+                <img src="src/workbench.jpeg" style="width:100%">
+                <img src="src/gondol.jpeg" style="width:100%">
+                <img src="src/skies.jpeg" style="width:100%">
+                <img src="src/lights.jpeg" style="width:100%">
+                <img src="src/workshop.jpeg" style="width:100%">
+            </div>
+        </div>
+
+        <!-- End Page Content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin-top:128px">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank"
+                class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+
+    <script>
+        // Toggle grid padding
+        function myFunction() {
+            var x = document.getElementById("myGrid");
+            if (x.className === "w3-row") {
+                x.className = "w3-row-padding";
+            } else {
+                x.className = x.className.replace("w3-row-padding", "w3-row");
+            }
+        }
+
+        // Open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.width = "100%";
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
