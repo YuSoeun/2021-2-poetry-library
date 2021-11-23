@@ -6,24 +6,30 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    body, h1 {
-        font-family: "ON 춘향전OTF", sans-serif
-    }
+ <head>
+ <style>
+         h1,h3 {
+            text-align: center;
+            color: black;
+            font-family: "ON 춘향전TTF", "ON 춘향전OTF"
+        }
+         h4 {color: gray;
+            font-family: "neon"
+        }
+         body {
+            font-family:"ON 춘향전", "ON 춘향전OTF";
+            text-align: center;
+            color:black;
+            background-image:url("src/photos/background.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font: 100;
+        }
+   </style>
+</head>
 
-    img {
-        margin-bottom: -7px
-    }
-
-    .w3-row-padding img {
-        margin-bottom: 12px
-    }
-    p {
-         text-align: center;
-    }
-</style>
 <body>
-
     <!-- Sidebar -->
     <nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
         <a href="javascript:void(0)" onclick="w3_close()"
@@ -31,66 +37,67 @@
             <i class="fa fa-remove"></i>
         </a>
         <div class="w3-bar-block w3-center">
-            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">종류</a>
-            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">주제</a>
-            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">시인</a>
-            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">국가</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">동시</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">교술시</a>
+            <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">서정시</a>    
         </div>
     </nav>
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-content" style="max-width:1500px">
-
         <!-- Header -->
         <div class="w3-opacity">
             <span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span>
             <div class="w3-clear"></div>
             <header class="w3-center w3-margin-bottom">
-                <p><b>나만의 시로 가는 버튼</b></p>
+                
+                <form>
+                <input type="button" value="나만의 시">
+                </form>
+                
                 <h1><b>詩集文庫</b></h1>
-                <p><b>시집문고 - 시를 좋아하는 당신을 위한 공간 (여기 설명설명)</b></p>
-                <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">처음 오셨나요?  버튼을 누르시면 상세 페이지로 이동합니다.
-                        </button></p>
+                <p><b>시집문고 - 시를 좋아하는 당신을 위한 공간</b></p>
+                <a href="introduction.html" target="_blank">
+                    <p class="w3-padding-16">
+                        <button class="w3-button w3-black" onclick="myFunction()">처음 오셨나요?  버튼을 누르시면 상세 페이지로 이동합니다.</button>
+                    </p>
+                </a>
             </header>
         </div>
-
-        <div>
-            <p><b>검색 기능 추가</b></p>
-        </div>
-
-        <!-- Photo Grid -->
-        <div class="w3-row" id="myGrid" style="margin-bottom:128px">
-            <div class="w3-third">
-                <img src="src/rocks.jpeg" style="width:100%">
-                <p>돌</p>
-                <img src="src/sound.jpeg" style="width:100%">
-                <p>소리</p>
-                <img src="src/woods.jpeg" style="width:100%">
-                <img src="src/rock.jpeg" style="width:100%">
-                <img src="src/nature.jpeg" style="width:100%">
-                <img src="src/mist.jpeg" style="width:100%">
-            </div>
-
-            <div class="w3-third">
-                <img src="src/coffee.jpeg" style="width:100%">
-                <img src="src/bridge.jpeg" style="width:100%">
-                <img src="src/notebook.jpeg" style="width:100%">
-                <img src="src/london.jpeg" style="width:100%">
-                <img src="src/rocks.jpeg" style="width:100%">
-                <img src="src/avatar_g.jpeg" style="width:100%">
-            </div>
-
-            <div class="w3-third">
-                <img src="src/mist.jpeg" style="width:100%">
-                <img src="src/workbench.jpeg" style="width:100%">
-                <img src="src/gondol.jpeg" style="width:100%">
-                <img src="src/skies.jpeg" style="width:100%">
-                <img src="src/lights.jpeg" style="width:100%">
-                <img src="src/workshop.jpeg" style="width:100%">
+        <div class="container">
+            <div id="content">
+                <form class='form-inline'>
+                    <div .center {margin: auto; width: 50%; border: 3px solid green; padding: 10px;}>
+                        <input type='text' id='search' placeholder="Search">
+                        <span  style="width:100px">
+                            <button id="search-this"type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form> 
             </div>
         </div>
 
-        <!-- End Page Content -->
+            <!-- Photo Grid -->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="myGrid" style="margin-bottom:200px">
+            <div class="w3-quarter">
+                <img src="src/photos/woods.jpeg" width="250" height="300">
+                <p><a href="http://www.microsoft.com/">#자연</a></p>
+            </div>   
+            <div class="w3-quarter">
+            <img src="src/photos/avatar_g.jpeg" width="250" height="300">
+                <p><a href="http://www.microsoft.com/">#사랑</a></p>
+            </div>
+            <div class="w3-quarter">
+            <img src="src/photos/skies.jpeg" width="250" height="300">
+                <p><a href="http://www.microsoft.com/">#하늘</a> </p>
+            </div>  
+            <div class="w3-quarter">
+                <img src="src/photos/gondol.jpeg" width="250" height="300">
+                    <p><a href="http://www.microsoft.com/">#감정</a></p>
+            </div>  
+        </div>  
     </div>
 
     <!-- Footer -->
@@ -126,7 +133,5 @@
             document.getElementById("mySidebar").style.display = "none";
         }
     </script>
-
 </body>
-
 </html>
