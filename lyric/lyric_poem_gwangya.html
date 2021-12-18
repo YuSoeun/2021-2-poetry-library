@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>광야_이육사</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+    body {
+        font-family: "210 디딤명조 020", sans-serif;
+        background: url("./src/gwangya.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-family: "210 디딤명조 020", sans-serif;
+    }
+    /* + 200% > 150% */
+    .about {
+        line-height: 150%;
+    }
+    /* + poet-margin1 style */
+    .poet-margin1 {
+      margin-right: 10%;
+    }
+  
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+    /* + poem title fadein style */
+    @keyframes fadeinanimation {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+          }
+        .fadeinani1 {
+            animation-name: fadeinanimation;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+          }
+
+    /* + nav style */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      }
+      nav {
+        font-family: "210 옴니고딕 020";
+        --transition-time: 500ms;
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(20px);
+        transform: translateX(-100%);
+        transition: all 800ms cubic-bezier(0.8, 0, 0.33, 1);
+        z-index: 4;
+      }
+      nav a {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-decoration: none;
+        user-select: none;
+        color: #fff;
+      }
+      nav .nav-links {
+        --link-height: 60px;
+        position: relative;
+        width: 100%;
+      }
+      nav .nav-links li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: var(--link-height);
+        list-style: none;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: all var(--transition-time) cubic-bezier(0.8, 0, 0.33, 0.9);
+        transition-delay: calc(30ms + var(--delay));
+        cursor: pointer;
+        z-index: 8;
+      }
+      nav .nav-links li:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      nav .nav-links li a {
+        pointer-events: none;
+      }
+      nav .nav-links li ol {
+        display: none;
+      }
+      nav .nav-links .hover-el {
+        position: absolute;
+        width: 100%;
+        height: var(--link-height);
+        top: var(--y);
+        left: var(--x);
+        opacity: 0;
+        background: radial-gradient(circle at var(--mousex) var(--mousey), rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%);
+        transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        pointer-events: none;
+        z-index: 5;
+      }
+      nav .sub-menu {
+        --link-height: 60px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+      nav .sub-menu ol {
+        list-style: none;
+      }
+      nav .sub-menu ol li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--link-height);
+        transition: all var(--transition-time) ease;
+        transition-delay: calc(30ms + var(--delay));
+        cursor: pointer;
+      }
+      nav .sub-menu ol li:hover {
+        background: rgba(0, 0, 0, 0.25);
+      }
+      nav .sub-menu ol li.off-menu {
+        opacity: 0;
+        transform: translateY(30%);
+      }
+      nav .sub-menu ol li.on-menu {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+      nav .sub-menu ol li a {
+        font-size: 1.0rem;
+        font-weight: normal;
+      }
+      nav .sub-menu-btn {
+        --icon-width: 40px;
+        position: absolute;
+        top: 6%;
+        left: 10%;
+        width: var(--icon-width);
+        height: var(--icon-width);
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all var(--transition-time) cubic-bezier(0.8, 0, 0.33, 1.25);
+        cursor: pointer;
+        z-index: 8;
+        pointer-events: none;
+      }
+      nav .sub-menu-btn .line {
+        width: calc(var(--icon-width) - 28px);
+        height: 2px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        margin: 12px 10px;
+      }
+      nav .sub-menu-btn .line__1 {
+        transform-origin: left;
+        transform: rotate(-35deg) translate(-1px, 8px);
+      }
+      nav .sub-menu-btn .line__2 {
+        transform-origin: left;
+        transform: rotate(35deg) translate(-1px, -8px);
+      }
+      nav .menu-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        --icon-width: 25px;
+        position: absolute;
+        top: 5%;
+        right: -35%;
+        width: calc(var(--icon-width) + 25px);
+        height: calc(var(--icon-width) + 25px);
+        flex-direction: column;
+        transition: all calc(100ms + var(--transition-time)) cubic-bezier(0.8, 0, 0.33, 1.25);
+        cursor: pointer;
+        z-index: 10;
+      }
+      nav .menu-btn.close .line__1 {
+        transform: rotate(45deg) translate(2px, -3px);
+      }
+      nav .menu-btn.close .line__2 {
+        transform: rotate(-45deg);
+      }
+      nav .menu-btn.close .line__3 {
+        transform: rotate(45deg) translate(-2px, 3px);
+      }
+      nav .menu-btn .line {
+        width: var(--icon-width);
+        background: #fff;
+        height: 2px;
+        margin: 3px 0;
+        transition: all calc(var(--transition-time) + 100ms) cubic-bezier(0.9, 0, 0.33, 1);
+      }
+      nav .menu-btn .line__1 {
+        width: var(--icon-width);
+        transform-origin: left;
+      }
+      nav .menu-btn .line__2 {
+        width: var(--icon-width);
+        transform-origin: center;
+      }
+      nav .menu-btn .line__3 {
+        width: var(--icon-width);
+        transform-origin: right;
+      }
+      nav.nav-open {
+        transform: translateX(0%);
+      }
+      nav.nav-open .menu-btn {
+        right: 10%;
+      }
+      nav.nav-open .nav-links li {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      nav.sub-menu-open .sub-menu-btn {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+      }
+      nav.sub-menu-open .nav-links li {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10%);
+      }
+      nav.sub-menu-open .nav-links .hover-el {
+        opacity: 0;
+      }
+
+</style>
+
+<script>
+  
+  // + page auto scroll script
+  function pageScroll()
+      {
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('pageScroll()',30); 
+      }
+
+  // + page auto scroll speedturn script
+  function speedturn0()
+      {
+        clearTimeout(scrolldelay);
+      }
+  function speedturn10()
+      {
+        clearTimeout(scrolldelay);
+
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn10()', 30); 
+      }
+
+  function speedturn15()
+      {
+        clearTimeout(scrolldelay);
+      
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn15()', 20); 
+      }
+
+  function speedturn20()
+      {
+        clearTimeout(scrolldelay);
+      
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn20()', 15); 
+      }
+
+  // + audio set
+  var audio = new Audio("./audio/audioGwangya.mp3");
+  audio.autoplay = true;
+  audio.loop = true;
+  function stopAudio(){
+    audio.load();
+    audio.pause();
+  }
+
+</script>
+
+</head>
+
+
+<body onload="pageScroll()">
+
+  <!-- + responsive nav -->
+  <nav>
+    <div class="menu-btn">
+      <div class="line line__1"></div>
+      <div class="line line__2"></div>
+      <div class="line line__3"></div>
+    </div>
+  
+    <div class="sub-menu-btn">
+      <div class="line line__1"></div>
+      <div class="line line__2"></div>
+    </div>
+  
+    <ul class="nav-links">
+      <li class="link" onclick="window.location.href='index.html'">
+        <a href="javascript:void(0)">
+        <p><img src="./src/home.png" width="20px" height="20px">  홈으로</p></a>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/speed.png" width="20px" height="20px">  속도조절</p></a>
+          <ol>
+            <li onclick="speedturn0()"><a href="javascript:void(0)">STOP</a></li>
+				    <li onclick="speedturn10()"><a href="javascript:void(0)">X 1.0</a></li>
+				    <li onclick="speedturn15()"><a href="javascript:void(0)">X 1.5</a></li>
+            <li onclick="speedturn20()"><a href="javascript:void(0)">X 2.0</a></li>
+			    </ol>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/menuicon.png" width="20px" height="20px">  카테고리</p></a>
+        <ol>
+          <li onclick="window.location.href='./children-poem.html'">
+            <a href="javascript:void(0)">
+              동시
+            </a>
+          </li>
+          <li onclick="window.location.href='./lyric-poem.html'">
+            <a href="javascript:void(0)">
+              서정시
+            </a>
+          </li>
+          <li onclick="window.location.href='./didactic-poem.html'">
+            <a href="javascript:void(0)">
+              <!-- 교술시 href artistic(X) didactic(O) didactic으로 이름 수정-->
+              교술시
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/musicplayer.png" width="20px" height="20px">  배경음악</p></a>
+        <ol>
+          <li onclick="audio.play()">
+            <a href="javascript:void(0)"><img src="./src/play.png" width="20px" height="20px">  PLAY</a>
+          </li>
+          <li onclick="audio.pause()">
+            <a href="javascript:void(0)"><img src="./src/pause.png" width="20px" height="20px">  PAUSE</a>
+          </li>
+          <li onclick="stopAudio()">
+            <a href="javascript:void(0)"><img src="./src/stop.png" width="20px" height="20px">  STOP</a>
+          </li>
+        </ol>
+      </li>
+      <li class="link" onClick="javascript:window.scrollTo(0,0)">
+        <a href="javascript:void(0)">
+        <p><img src="./src/top.png" width="20px" height="20px">  처음부터</p></a>
+      </li>
+    </ul>
+  </nav>
+
+<script>
+  
+    // + responsive nav script
+    console.clear();
+ 
+ const nav = document.querySelector("nav");
+ const navLinksContainer = document.querySelector(".nav-links");
+ const navLinks = [...document.querySelectorAll(".link")];
+ const menuBtn = document.querySelector(".menu-btn");
+ const subMenuBtn = document.querySelector(".sub-menu-btn");
+ 
+ function createHoverEl() {
+   let hoverEl = document.createElement("div");
+   hoverEl.className = "hover-el";
+   hoverEl.style.setProperty("--y", "0px");
+   hoverEl.style.setProperty("--mousex", "0px");
+   hoverEl.style.setProperty("--mousey", "0px");
+   navLinksContainer.appendChild(hoverEl);
+ }
+ createHoverEl();
+ 
+ navLinks.forEach((link, index) => {
+   let hoverEl = navLinksContainer.querySelector(".hover-el");
+   link.style.setProperty("--delay", `${index * 50}ms`);
+   link.addEventListener("mousemove", function(e) {
+     hoverEl.style.setProperty("--y", `${index * 60}px`);
+     hoverEl.style.setProperty("opacity", "1");
+     hoverEl.style.setProperty("--mousex", `${e.pageX - hoverEl.offsetLeft}px`);
+     hoverEl.style.setProperty("--mousey", `${e.pageY - hoverEl.offsetTop}px`);
+   });
+   navLinksContainer.addEventListener("mouseout", function() {
+     hoverEl.style.setProperty("opacity", "0");
+   });
+   link.addEventListener("click", function() {
+     let hoverEl = navLinksContainer.querySelector(".hover-el");
+     hoverEl.style.opacity = '0';
+     toggleSubmenu(link);
+   });
+ });
+ 
+ menuBtn.addEventListener("click", function() {
+   nav.classList.toggle("nav-open");
+   menuBtn.classList.toggle("close");
+ });
+ subMenuBtn.addEventListener("click", function() {
+   nav.classList.toggle("sub-menu-open");
+   removeSubmenu();
+ });
+ 
+ function toggleSubmenu(el) {
+   let subMenu = nav.querySelector(".sub-menu");
+   if (el.children[1]) {
+     createSubmenu(el);
+   } else if (nav.contains(subMenu)) {
+     removeSubmenu();
+   } else {
+     return;
+   }
+ }
+ 
+ function createSubmenu(el) {
+   let subMenuContainer = document.createElement("div");
+   subMenuContainer.className = "sub-menu";
+   let subMenuItem = el.children[1].cloneNode(true);
+   let subMenuItemList = [...subMenuItem.children];
+   subMenuItemList.forEach((item, index) => {
+     item.classList.add("off-menu");
+     item.style.setProperty("--delay", `${index * 40}ms`);
+   });
+   nav.classList.toggle("sub-menu-open");
+   nav.appendChild(subMenuContainer);
+   subMenuContainer.appendChild(subMenuItem);
+   setTimeout(function() {
+     subMenuItemList.forEach(item => {
+       item.classList.remove("off-menu");
+       item.classList.add("on-menu");
+     });
+   }, 200);
+ }
+ function removeSubmenu() {
+   let subMenu = nav.querySelector(".sub-menu");
+   let subMenuItemList = [...subMenu.children[0].children];
+   if (nav.contains(subMenu)) {
+     subMenuItemList.forEach(item => {
+       item.classList.add("off-menu");
+       item.classList.remove("on-menu");
+     });
+     setTimeout(function() {
+       nav.removeChild(subMenu);
+     }, 500);
+   }
+ }
+ 
+</script>
+
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-xlarge w3-center w3-text-white" id="home">
+    <br><br><br><br><br><br><br>
+    <!-- + poem title fadein -->
+    <div class="fadeinani1">
+        <h1 class="w3-jumbo">광야</h1><br><br><br>
+        <!-- + poet-margin1 -->
+        <p class = "w3-right poet-margin1">이육사</p><br><br><br><br><br><br><br>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-large w3-text-light-grey w3-padding-large" id="about">
+    <div class="gwangya-section" id="gwangya-1-1"><p>까마득한 날에</p></div><br>
+    <div class="gwangya-section" id="gwangya-1-2"><p>하늘이 처음 열리고</p></div><br>
+    <div class="gwangya-section" id="gwangya-1-3"><p>어데 닭 우는 소리 들렸으랴</p></div><br><br><br><br>
+    <div class="gwangya-section" id="gwangya-2-1"><p>모든 산맥들이</p></div><br>
+    <div class="gwangya-section" id="gwangya-2-2"><p>바다를 연모해 휘달릴 때도</p></div><br>
+    <div class="gwangya-section" id="gwangya-2-3"><p>차마 이곳을 범(犯)하던 못하였으리라</p></div><br><br><br><br>
+    <div class="gwangya-section" id="gwangya-3-1"><p>끊임없는 광음(光陰)을</p></div><br>
+    <div class="gwangya-section" id="gwangya-3-2"><p>부지런한 계절이 피어선 지고</p></div><br>
+    <div class="gwangya-section" id="gwangya-3-3"><p>큰 강물이 비로소 길을 열었다</p></div><br><br><br><br>
+    <div class="gwangya-section" id="gwangya-4-1"><p>지금 눈 내리고</p></div><br>
+    <div class="gwangya-section" id="gwangya-4-2"><p>매화 향기 홀로 아들하니</p></div><br>
+    <div class="gwangya-section" id="gwangya-4-3"><p>내 여기 가난한 노래의 씨를 뿌려라</p></div><br><br><br><br>
+    <div class="gwangya-section" id="gwangya-5-1"><p>다시 천고(千古)의 뒤에</p></div><br>
+    <div class="gwangya-section" id="gwangya-5-2"><p>백마 타고 오는 초인(超人)이 있어</p></div><br>
+    <div class="gwangya-section" id="gwangya-5-3"><p>이 광야에서 목놓아 부르게 하리라</p></div><br><br><br><br>
+  </div><br>
+  </div>
+
+  
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-black w3-opacity w3-xlarge" style="margin-top:128px" style="opacity: 0.3;">
+      <p>
+      <h3 class="w3-text-white">개발자 목록</h3>
+      </p>
+      <div class="footerContainer">
+        <div class="item">
+          <img src="src/photos/주안.png" width="40" height="40">
+          <img src="src/photos/수아.jpeg" width="40" height="40">
+          <img src="src/photos/시은.jpeg" width="40" height="40">
+          <img src="src/photos/예빈.gif" width="40" height="40">
+          <img src="src/photos/소은.jpeg" width="40" height="40">
+          <h6>강주안 김수아 김시은 김예빈 유소은</h6>
+        </div>
+      </div>
+      <div style="font-size: 0.9rem;font-style: italic;">
+        <div>아이콘 제작자 <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/debi-alpa-nugraha" title="Debi Alpa Nugraha">Debi Alpa Nugraha</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/moonde" title="Moon.de">Moon.de</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/nawicon" title="nawicon">nawicon</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/authors/cuputo" title="Cuputo">Cuputo</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+        <Br>
+    <!-- End footer -->
+  </footer>
+
+</body>
+
+
+</html>
+
+<!-- Copyright (c) 2021 by Sikriti Dakua (https://codepen.io/dev_loop/pen/zYYXaQM) -->

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>한림별곡_한림제유</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+    body {
+        font-family: "210 디딤명조 020", sans-serif;
+        background: url("./src/hanrim.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-family: "210 디딤명조 020", sans-serif;
+    }
+    /* + 200% > 150% */
+    .about {
+        line-height: 150%;
+    }
+    /* + poet-margin1 style */
+    .poet-margin1 {
+      margin-right: 10%;
+    }
+  
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+    /* + poem title fadein style */
+    @keyframes fadeinanimation {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+          }
+        .fadeinani1 {
+            animation-name: fadeinanimation;
+            animation-duration: 4s;
+            animation-iteration-count: 1;
+          }
+
+    /* + nav style */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      }
+      nav {
+        font-family: "210 옴니고딕 020";
+        --transition-time: 500ms;
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(20px);
+        transform: translateX(-100%);
+        transition: all 800ms cubic-bezier(0.8, 0, 0.33, 1);
+        z-index: 4;
+      }
+      nav a {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-decoration: none;
+        user-select: none;
+        color: #fff;
+      }
+      nav .nav-links {
+        --link-height: 60px;
+        position: relative;
+        width: 100%;
+      }
+      nav .nav-links li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: var(--link-height);
+        list-style: none;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: all var(--transition-time) cubic-bezier(0.8, 0, 0.33, 0.9);
+        transition-delay: calc(30ms + var(--delay));
+        cursor: pointer;
+        z-index: 8;
+      }
+      nav .nav-links li:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      nav .nav-links li a {
+        pointer-events: none;
+      }
+      nav .nav-links li ol {
+        display: none;
+      }
+      nav .nav-links .hover-el {
+        position: absolute;
+        width: 100%;
+        height: var(--link-height);
+        top: var(--y);
+        left: var(--x);
+        opacity: 0;
+        background: radial-gradient(circle at var(--mousex) var(--mousey), rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%);
+        transition: all 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+        pointer-events: none;
+        z-index: 5;
+      }
+      nav .sub-menu {
+        --link-height: 60px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+      nav .sub-menu ol {
+        list-style: none;
+      }
+      nav .sub-menu ol li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--link-height);
+        transition: all var(--transition-time) ease;
+        transition-delay: calc(30ms + var(--delay));
+        cursor: pointer;
+      }
+      nav .sub-menu ol li:hover {
+        background: rgba(0, 0, 0, 0.25);
+      }
+      nav .sub-menu ol li.off-menu {
+        opacity: 0;
+        transform: translateY(30%);
+      }
+      nav .sub-menu ol li.on-menu {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+      nav .sub-menu ol li a {
+        font-size: 1.0rem;
+        font-weight: normal;
+      }
+      nav .sub-menu-btn {
+        --icon-width: 40px;
+        position: absolute;
+        top: 6%;
+        left: 10%;
+        width: var(--icon-width);
+        height: var(--icon-width);
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all var(--transition-time) cubic-bezier(0.8, 0, 0.33, 1.25);
+        cursor: pointer;
+        z-index: 8;
+        pointer-events: none;
+      }
+      nav .sub-menu-btn .line {
+        width: calc(var(--icon-width) - 28px);
+        height: 2px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        margin: 12px 10px;
+      }
+      nav .sub-menu-btn .line__1 {
+        transform-origin: left;
+        transform: rotate(-35deg) translate(-1px, 8px);
+      }
+      nav .sub-menu-btn .line__2 {
+        transform-origin: left;
+        transform: rotate(35deg) translate(-1px, -8px);
+      }
+      nav .menu-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        --icon-width: 25px;
+        position: absolute;
+        top: 5%;
+        right: -35%;
+        width: calc(var(--icon-width) + 25px);
+        height: calc(var(--icon-width) + 25px);
+        flex-direction: column;
+        transition: all calc(100ms + var(--transition-time)) cubic-bezier(0.8, 0, 0.33, 1.25);
+        cursor: pointer;
+        z-index: 10;
+      }
+      nav .menu-btn.close .line__1 {
+        transform: rotate(45deg) translate(2px, -3px);
+      }
+      nav .menu-btn.close .line__2 {
+        transform: rotate(-45deg);
+      }
+      nav .menu-btn.close .line__3 {
+        transform: rotate(45deg) translate(-2px, 3px);
+      }
+      nav .menu-btn .line {
+        width: var(--icon-width);
+        background: #fff;
+        height: 2px;
+        margin: 3px 0;
+        transition: all calc(var(--transition-time) + 100ms) cubic-bezier(0.9, 0, 0.33, 1);
+      }
+      nav .menu-btn .line__1 {
+        width: var(--icon-width);
+        transform-origin: left;
+      }
+      nav .menu-btn .line__2 {
+        width: var(--icon-width);
+        transform-origin: center;
+      }
+      nav .menu-btn .line__3 {
+        width: var(--icon-width);
+        transform-origin: right;
+      }
+      nav.nav-open {
+        transform: translateX(0%);
+      }
+      nav.nav-open .menu-btn {
+        right: 10%;
+      }
+      nav.nav-open .nav-links li {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      nav.sub-menu-open .sub-menu-btn {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+      }
+      nav.sub-menu-open .nav-links li {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10%);
+      }
+      nav.sub-menu-open .nav-links .hover-el {
+        opacity: 0;
+      }
+
+</style>
+
+<script>
+  
+  // + page auto scroll script
+  function pageScroll()
+      {
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('pageScroll()',30); 
+      }
+
+  // + page auto scroll speedturn script
+  function speedturn0()
+      {
+        clearTimeout(scrolldelay);
+      }
+  function speedturn10()
+      {
+        clearTimeout(scrolldelay);
+
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn10()', 30); 
+      }
+
+  function speedturn15()
+      {
+        clearTimeout(scrolldelay);
+      
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn15()', 20); 
+      }
+
+  function speedturn20()
+      {
+        clearTimeout(scrolldelay);
+      
+      window.scrollBy(0,1);
+      scrolldelay = setTimeout('speedturn20()', 15); 
+      }
+
+  // + audio set
+  var audio = new Audio("./audio/g선상아리아 가야금.wav");
+  audio.autoplay = true;
+  audio.loop = true;
+  function stopAudio(){
+    audio.load();
+    audio.pause();
+  }
+
+</script>
+
+</head>
+
+
+<body onload="pageScroll()">
+
+  <!-- + responsive nav -->
+  <nav>
+    <div class="menu-btn">
+      <div class="line line__1"></div>
+      <div class="line line__2"></div>
+      <div class="line line__3"></div>
+    </div>
+  
+    <div class="sub-menu-btn">
+      <div class="line line__1"></div>
+      <div class="line line__2"></div>
+    </div>
+  
+    <ul class="nav-links">
+      <li class="link" onclick="window.location.href='index.html'">
+        <a href="javascript:void(0)">
+        <p><img src="./src/home.png" width="20px" height="20px">  홈으로</p></a>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/speed.png" width="20px" height="20px">  속도조절</p></a>
+          <ol>
+            <li onclick="speedturn0()"><a href="javascript:void(0)">STOP</a></li>
+				    <li onclick="speedturn10()"><a href="javascript:void(0)">X 1.0</a></li>
+				    <li onclick="speedturn15()"><a href="javascript:void(0)">X 1.5</a></li>
+            <li onclick="speedturn20()"><a href="javascript:void(0)">X 2.0</a></li>
+			    </ol>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/menuicon.png" width="20px" height="20px">  카테고리</p></a>
+        <ol>
+          <li>
+            <a target="_blank" href="./children-poem.html">
+              동시
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="./lyric-poem.html">
+              서정시
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="./didactic-poem.html">
+              <!-- 교술시 href artistic(X) didactic(O) didactic으로 이름 수정-->
+              교술시
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li class="link">
+        <a href="javascript:void(0)">
+        <p><img src="./src/musicplayer.png" width="20px" height="20px">  배경음악</p></a>
+        <ol>
+          <li onclick="audio.play()">
+            <a href="javascript:void(0)"><img src="./src/play.png" width="20px" height="20px">  PLAY</a>
+          </li>
+          <li onclick="audio.pause()">
+            <a href="javascript:void(0)"><img src="./src/pause.png" width="20px" height="20px">  PAUSE</a>
+          </li>
+          <li onclick="stopAudio()">
+            <a href="javascript:void(0)"><img src="./src/stop.png" width="20px" height="20px">  STOP</a>
+          </li>
+        </ol>
+      </li>
+      <li class="link" onClick="javascript:window.scrollTo(0,0)">
+        <a href="javascript:void(0)">
+        <p><img src="./src/top.png" width="20px" height="20px">  처음부터</p></a>
+      </li>
+    </ul>
+  </nav>
+
+<script>
+  
+    // + responsive nav script
+    console.clear();
+ 
+ const nav = document.querySelector("nav");
+ const navLinksContainer = document.querySelector(".nav-links");
+ const navLinks = [...document.querySelectorAll(".link")];
+ const menuBtn = document.querySelector(".menu-btn");
+ const subMenuBtn = document.querySelector(".sub-menu-btn");
+ 
+ function createHoverEl() {
+   let hoverEl = document.createElement("div");
+   hoverEl.className = "hover-el";
+   hoverEl.style.setProperty("--y", "0px");
+   hoverEl.style.setProperty("--mousex", "0px");
+   hoverEl.style.setProperty("--mousey", "0px");
+   navLinksContainer.appendChild(hoverEl);
+ }
+ createHoverEl();
+ 
+ navLinks.forEach((link, index) => {
+   let hoverEl = navLinksContainer.querySelector(".hover-el");
+   link.style.setProperty("--delay", `${index * 50}ms`);
+   link.addEventListener("mousemove", function(e) {
+     hoverEl.style.setProperty("--y", `${index * 60}px`);
+     hoverEl.style.setProperty("opacity", "1");
+     hoverEl.style.setProperty("--mousex", `${e.pageX - hoverEl.offsetLeft}px`);
+     hoverEl.style.setProperty("--mousey", `${e.pageY - hoverEl.offsetTop}px`);
+   });
+   navLinksContainer.addEventListener("mouseout", function() {
+     hoverEl.style.setProperty("opacity", "0");
+   });
+   link.addEventListener("click", function() {
+     let hoverEl = navLinksContainer.querySelector(".hover-el");
+     hoverEl.style.opacity = '0';
+     toggleSubmenu(link);
+   });
+ });
+ 
+ menuBtn.addEventListener("click", function() {
+   nav.classList.toggle("nav-open");
+   menuBtn.classList.toggle("close");
+ });
+ subMenuBtn.addEventListener("click", function() {
+   nav.classList.toggle("sub-menu-open");
+   removeSubmenu();
+ });
+ 
+ function toggleSubmenu(el) {
+   let subMenu = nav.querySelector(".sub-menu");
+   if (el.children[1]) {
+     createSubmenu(el);
+   } else if (nav.contains(subMenu)) {
+     removeSubmenu();
+   } else {
+     return;
+   }
+ }
+ 
+ function createSubmenu(el) {
+   let subMenuContainer = document.createElement("div");
+   subMenuContainer.className = "sub-menu";
+   let subMenuItem = el.children[1].cloneNode(true);
+   let subMenuItemList = [...subMenuItem.children];
+   subMenuItemList.forEach((item, index) => {
+     item.classList.add("off-menu");
+     item.style.setProperty("--delay", `${index * 40}ms`);
+   });
+   nav.classList.toggle("sub-menu-open");
+   nav.appendChild(subMenuContainer);
+   subMenuContainer.appendChild(subMenuItem);
+   setTimeout(function() {
+     subMenuItemList.forEach(item => {
+       item.classList.remove("off-menu");
+       item.classList.add("on-menu");
+     });
+   }, 200);
+ }
+ function removeSubmenu() {
+   let subMenu = nav.querySelector(".sub-menu");
+   let subMenuItemList = [...subMenu.children[0].children];
+   if (nav.contains(subMenu)) {
+     subMenuItemList.forEach(item => {
+       item.classList.add("off-menu");
+       item.classList.remove("on-menu");
+     });
+     setTimeout(function() {
+       nav.removeChild(subMenu);
+     }, 500);
+   }
+ }
+ 
+</script>
+
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-xlarge w3-center w3-text-white" id="home">
+    <br><br><br><br><br><br><br>
+    <!-- + poem title fadein -->
+    <div class="fadeinani1">
+        <h1 class="w3-jumbo">한림별곡</h1><br><br><br>
+        <!-- + poet-margin1 -->
+        <p class = "w3-right poet-margin1">한림제유</p><br><br><br><br><br><br><br>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-large w3-text-light-grey w3-padding-large" id="about">
+      <div class="hanrim-section" id="hanrim-1-1"><p>유원순의 문장, 이인로의 시, 이공로의 사륙변려문 </p></div><br>
+      <div class="hanrim-section" id="hanrim-1-2"><p>이규보와 진화의 쌍운주필</p></div><br>
+      <div class="hanrim-section" id="hanrim-1-3"><p>유충기의 대책문, 민광균의 경서(經書), 해의(解義), 김양경의 시와 부</p></div><br>
+      <div class="hanrim-section" id="hanrim-1-4"><p>아, 이러한 분들이 모두 모여 시험을 치는 광경 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-1-5"><p>금의가 배출한 죽순같이 많은 제자들 금의가 배출한 죽순같이 많은 제자들</p></div><br>
+      <div class="hanrim-section" id="hanrim-1-6"><p>아아, 나까지 몇 분입니까?</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-2-1"><p>당서와 한서, 장자와 노자, 한유와 유종원의 문집</p></div><br>
+      <div class="hanrim-section" id="hanrim-2-2"><p>이백과 두보의 시집, 난대영사들의 시문집, 백락천의 문집</p></div><br>
+      <div class="hanrim-section" id="hanrim-2-3"><p>시경과 서경, 주역과 춘추, 대대례와 소대례</p></div><br>
+      <div class="hanrim-section" id="hanrim-2-4"><p>아, 이러한 책들을 주석까지 외는 광경이 그 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-2-5"><p>대평광기 사백여 권을, 대평광기 사백여 권을</p></div><br>
+      <div class="hanrim-section" id="hanrim-2-6"><p>아, 열람하는 그 광경이 어떠합니까?</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-3-1"><p>진경서, 비백서, 행서와 초서</p></div><br>
+      <div class="hanrim-section" id="hanrim-3-2"><p>전서와 유문, 과두문, 우서와 남서</p></div><br>
+      <div class="hanrim-section" id="hanrim-3-3"><p>양수필, 서수필 비스듬히 들어</p></div><br>
+      <div class="hanrim-section" id="hanrim-3-4"><p>아, 찍는 광경 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-3-5"><p>오선생과 유선생 두 선생이,  오선생과 유선생 두 선생이</p></div><br>
+      <div class="hanrim-section" id="hanrim-3-6"><p>아, 붓을 들어 글을 써 내려가는 광경, 그것이 어떠합니까?</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-4-1"><p>황금주, 잣을 섞어 빚은 술, 솔잎을 넣어 빚은 술</p></div><br>
+      <div class="hanrim-section" id="hanrim-4-2"><p>댓잎 삶은 물로 담근 술, 배꽃 넣어 빚은 술, 오가피 삶은 물로 담근 술, 이렇게 좋은 술들을</p></div><br>
+      <div class="hanrim-section" id="hanrim-4-3"><p>앵무새의 부리 같이 만든 술잔, 호박으로 만든 술잔에 가득 부어</p></div><br>
+      <div class="hanrim-section" id="hanrim-4-4"><p>아, 윗사람에게 권하는 광경 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-4-5"><p>유영과 도잠 두 신선이, 유영과 도잠 두 신선이</p></div><br>
+      <div class="hanrim-section" id="hanrim-4-6"><p>술에 취한 광경 그것이 어떠합니까?</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-5-1"><p>붉은 모란, 흰 모란, 짙붉은 모란</p></div><br>
+      <div class="hanrim-section" id="hanrim-5-2"><p>붉은 작약, 흰 작약, 짙붉은 작약</p></div><br>
+      <div class="hanrim-section" id="hanrim-5-3"><p>능수버들과 옥매, 노란 장미와 자줏빛 장미, 지란과 영지와 동백</p></div><br>
+      <div class="hanrim-section" id="hanrim-5-4"><p>아, 어우러져 핀 광경 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-5-5"><p>합죽과 복숭아꽃 고운 두 분이, 합죽과 복숭아꽃 고운 두 분이</p></div><br>
+      <div class="hanrim-section" id="hanrim-5-6"><p>아, 서로 비친 경치 그것이 어떠합니까?</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-6-1"><p>아양이 타는 거문고, 문탁이 부는 피리, 종무가 부는 중금</p></div><br>
+      <div class="hanrim-section" id="hanrim-6-2"><p>대어향 옥기향의 쌍가야금</p></div><br>
+      <div class="hanrim-section" id="hanrim-6-3"><p>금선이 타는 비파, 종지가 타는 해금, 설원이 치는 장고</p></div><br>
+      <div class="hanrim-section" id="hanrim-6-4"><p>이 밤을 새워 노는 광경 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-6-5"><p>일지홍이 비스듬히 부는 피리 소리, 일지홍이 비스듬히 부는 피리 소리</p></div><br>
+      <div class="hanrim-section" id="hanrim-6-6"><p>아, 듣고서야 잠들고 싶습니다.</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-7-1"><p>봉래산, 방장산, 영주산의 삼신산</p></div><br>
+      <div class="hanrim-section" id="hanrim-7-2"><p>이 삼신산 홍루각의 미녀</p></div><br>
+      <div class="hanrim-section" id="hanrim-7-3"><p>아름다운 여인이 비단 장막 안에서 구슬로 만든 발을 반쯤 걷어 올리고</p></div><br>
+      <div class="hanrim-section" id="hanrim-7-4"><p>아, 오호를 바라보는 광경, 그것이 어떠합니까?</p></div><br>
+      <div class="hanrim-section" id="hanrim-7-5"><p>푸른 버들과 대나무를 심은 정자가 있는 언덕에서 푸른 버들과 대나무를 심은 정자가 있는 언덕에서</p></div><br>
+      <div class="hanrim-section" id="hanrim-7-6"><p>아, 지저귀는 꾀꼬리가 반갑기도 하구나.</p></div><br><br><br><br>
+      <div class="hanrim-section" id="hanrim-8-1"><p>호두나무, 쥐엄나무에</p></div><br>
+      <div class="hanrim-section" id="hanrim-8-2"><p>붉은 실로 붉은 그네를 맵니다</p></div><br>
+      <div class="hanrim-section" id="hanrim-8-3"><p>당기시라. 미시라 정소년이여</p></div><br>
+      <div class="hanrim-section" id="hanrim-8-4"><p>아, 내가 가는 곳에 남이 갈까 두렵다</p></div><br>
+      <div class="hanrim-section" id="hanrim-8-5"><p>옥을 깎은 것처럼 고운 두 손길에 옥을 깎은 것처럼 고운 두 손길에</p></div><br>
+      <div class="hanrim-section" id="hanrim-8-6"><p>아, 손을 마주 잡고 함께 노는 풍경 그것이 어떠합니까?</p></div><br><br><br><br>
+
+      
+    </div><br>
+    </div>
+
+  
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-black w3-opacity w3-xlarge" style="margin-top:128px" style="opacity: 0.3;">
+      <p>
+      <h3 class="w3-text-white">개발자 목록</h3>
+      </p>
+      <div class="footerContainer">
+        <div class="item">
+          <img src="src/photos/주안.png" width="40" height="40">
+          <img src="src/photos/수아.jpeg" width="40" height="40">
+          <img src="src/photos/시은.jpeg" width="40" height="40">
+          <img src="src/photos/예빈.gif" width="40" height="40">
+          <img src="src/photos/소은.jpeg" width="40" height="40">
+          <h6>강주안 김수아 김시은 김예빈 유소은</h6>
+        </div>
+      </div>
+      <div style="font-size: 0.9rem;font-style: italic;">
+        <div>아이콘 제작자 <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/debi-alpa-nugraha" title="Debi Alpa Nugraha">Debi Alpa Nugraha</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/moonde" title="Moon.de">Moon.de</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/nawicon" title="nawicon">nawicon</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+        <div>아이콘 제작자 <a href="https://www.flaticon.com/authors/cuputo" title="Cuputo">Cuputo</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+        <Br>
+        
+<p style="font-size: 0.9rem;font-style: italic;">
+<span>
+title : <a href="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13284296&menuNo=200020"> g선상아리아 가야금</a>
+authr : <a href="https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13284296&menuNo=200020"> 서예지</a>by
+site : <a href="https://gongu.copyright.or.kr/gongu/main/main.do">공유마당 저작권 위원회</a></span> <br>
+is licensed under
+<img src="https://gongu.copyright.or.kr/static/gongu/img/common/img_license21.png" alt="CC BY[저작자 표시]" class="img_cc">
+<span class="fc_orange">서예지 </span>의 "g선상아리아 가야금" 은 <span class="fc_orange">CC BY</span>  라이선스로 제공됩니다.
+</p> 
+    <!-- End footer -->
+  </footer>
+
+</body>
+
+
+</html>
+
+<!-- Copyright (c) 2021 by Sikriti Dakua (https://codepen.io/dev_loop/pen/zYYXaQM) -->
