@@ -207,9 +207,9 @@
         <i class="fa fa-remove"></i>
       </a>
       <div class="w3-bar-block w3-center">
-        <h1 href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">동시</h1>
-        <h1 href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">교술시</h1>
-        <h1 href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">서정시</h1>
+        <h1 href="children-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">동시</h1>
+        <h1 href="artistic-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">교술시</h1>
+        <h1 href="lyric-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">서정시</h1>
       </div>
     </nav>
 
@@ -231,22 +231,21 @@
       <a href="index.html" class="active" href="#">
         <i class="fa fa-fw fa-home"></i>메인화면
       </a>
-      <a href="#">
-        <i class="fa fa-fw fa-search"></i>목록 검색
-      </a>
     </div>
     <div id="myDIV" class="header">
       <h2>최근에 본 시집</h2>
-      <input type="text" id="myInput" placeholder="보고 싶은 시를 추가할 수 있습니다. - #카테고리">
+      <input type="text" id="myInput" placeholder="보고 싶은 시를 추가할 수 있습니다. - 카테고리">
       <span onclick="newElement()" class="addBtn">추가</span>
     </div>
+
+    <script language="javascript">
+      //리스트에 최근에 본 시 구현
+      temp=location.href.split("?");
+      data=temp[1];
+      document.write("<li>"+data+"</li>");
+    </script>
+
     <ul id="myUL">
-      <li>Hit the gym</li>
-      <li>Pay bills</li>
-      <li>Meet George</li>
-      <li>Buy eggs</li>
-      <li>Read a book</li>
-      <li>Organize office</li>
     </ul>
     <script>
       // Create a "close" button and append it to each list item
@@ -281,7 +280,6 @@
           document.getElementById("myUL").appendChild(li);
         }
         document.getElementById("myInput").value = "";
-
         var span = document.createElement("SPAN");
         var txt = document.createTextNode("\u00D7");
         span.className = "close";
