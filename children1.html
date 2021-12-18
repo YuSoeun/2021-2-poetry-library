@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<title>시집문고</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+  <style>
+    body, h1, h3 {
+      font-family: "ON 춘향전", "ON 춘향전OTF";
+      text-align: center;
+      color: rgb(56, 54, 54);
+    }
+
+    .allContainer {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .allContainer::after {
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-image: url("src/photos/background.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.5;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+    }
+
+    .myButton {
+      font-size: large;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    .firstButton {
+      font-size: medium;
+    }
+
+    a {
+      font-size: large;
+    }
+
+    .footerContainer {
+      display: inline-flex;
+    }
+
+    .item {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="allContainer">
+    <!-- Sidebar -->
+    <nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()"
+        class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
+        <i class="fa fa-remove"></i>
+      </a>
+      <div class="w3-bar-block w3-center">
+        <h1 href="children-poem" class="w3-bar-item w3-button w3-text-grey w3-hover-black">동시</h1>
+        <h1 href="artistic-poem" class="w3-bar-item w3-button w3-text-grey w3-hover-black">교술시</h1>
+        <h1 href="lyric-poem" class="w3-bar-item w3-button w3-text-grey w3-hover-black">서정시</h1>
+      </div>
+    </nav>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-content" style="max-width:1500px">
+      <!-- Header -->
+      <div>
+        <span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+        <div class="w3-clear"></div>
+        <header class="w3-center w3-margin-bottom">
+          <form>
+            <input class="myButton" type="button" value="나만의 시" onClick="location.href='my-poem.html'">
+          </form>
+          <h1><b class="w3-button w3-hover-none" onclick="location.href = './index.html'">동시</b></h1>
+          <a><b>시집문고 - 시를 좋아하는 당신을 위한 공간</b></a>
+
+          
+        </header>
+      </div>
+      <div class="searchContainer">
+        <div id="content">
+          <form class='form-inline'>
+            <div .center { margin: auto; width: 50%; border: 3px solid green; padding: 10px; }>
+              <input type='text' id='search' placeholder="Search">
+              <span style="width:100px">
+                <button id="search-this" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="w3-row-padding w3-padding-64 w3-center" id="myGrid" style="margin-bottom:200px">
+        <div class="w3-quarter">
+          <a href="https://www.windows.com">
+          <img src="src/photos/rain.jpeg" width="100%" height="250">
+          </a>
+          <p><a href="https://www.windows.com">#장마</a></p>
+        </div>
+        <div class="w3-quarter">
+          <a href="https://www.windows.com">
+          <img src="src/photos/family.jpeg" width="100%" height="250">
+          </a>
+          <p><a href="https://www.windows.com">#가족</a></p>
+        </div>
+        <div class="w3-quarter">
+          <a href="https://www.windows.com">
+          <img src="src/photos/tree.jpeg" width="100%" height="250">
+          </a>
+          <p><a href="https://www.windows.com">#나무</a> </p>
+        </div>
+        <div class="w3-quarter">
+          <a href="https://www.windows.com">
+          <img src="src/photos/wind.jpeg" width="100%" height="250">
+          </a>
+          <p><a href="https://www.windows.com">#바람</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-light-grey w3-xlarge w3-center" style="margin-top:128px">
+      <p>
+      <h3>개발자 목록</h3>
+      </p>
+      <div class="footerContainer">
+        <div class="item">
+          <img src="src/photos/주안.png" width="100" height="100">
+          <p><a>강주안</a></p>
+        </div>
+        <div class="item">
+          <img src="src/photos/수아.jpeg" width="100" height="100">
+          <p><a>김수아</a></p>
+        </div>
+        <div class="item">
+          <img src="src/photos/시은.jpeg" width="100" height="100">
+          <p><a>김시은</a> </p>
+        </div>
+        <div class="item">
+          <img src="src/photos/예빈.gif" width="100" height="100">
+          <p><a>김예빈</a></p>
+        </div>
+        <div class="item">
+          <img src="src/photos/소은.jpeg" width="100" height="100">
+          <p><a>유소은</a></p>
+        </div>
+    </footer>
+
+    <script>
+      // Toggle grid padding
+      function myFunction() {
+        var x = document.getElementById("myGrid");
+        if (x.className === "w3-row") {
+          x.className = "w3-row-padding";
+        } else {
+          x.className = x.className.replace("w3-row-padding", "w3-row");
+        }
+      }
+
+      // Open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.width = "100%";
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+    </script>
+  </div>
+</body>
+
+</html>
