@@ -29,7 +29,7 @@
       width: 100%;
       height: 100%;
       content: "";
-      background: url("./src/photos/grass.png");
+      background: url("../src/photos/family.jpeg");
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 0.5;
@@ -57,6 +57,10 @@
 
     /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
     #myCateBar {
+      display: none;
+    }
+
+    #mySpeedBar {
       display: none;
     }
 
@@ -135,30 +139,64 @@
 
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
+      <!-- Header/Home -->
+      <header class="w3-container w3-padding-64 w3-xlarge w3-center" id="home">
+        <h1 class="w3-jumbo"><span class="w3-hide-small">비 오는 날 </h1>
+        <p class="w3-right w3-margin-right w3-padding-large">양성우</p>
+      </header>
 
-      <body onload="pageScroll()">
-        <!-- Header/Home -->
-        <header class="w3-container w3-padding-32 w3-xlarge w3-center" id="home">
-          <h1 class="w3-jumbo"><span class="w3-hide-small">동시</span> 템플릿</h1>
-          <p class="w3-right w3-padding-large">시인 이름</p>
-        </header>
+      <!-- Poem Section -->
+      <div class="w3-content w3-justify w3-xlarge w3-padding-large w3-center w3-margin-bottom" id="content1">
+        <p>둥지 없는 작은 새들은 이런 날</p><br>        
+        <p>어떻게 지낼까?</p><br>
+        <p>나비들은, 잠자리, 풍뎅이, 쇠똥구리들은</p><br>
+        <p>이런 날 어떻게 지낼까?</p><br>
+        <p>맨드라미, 나팔꽃, 채송화...... 그리고</p><br>
+        <p>이름 모를 풀꽃들은 어떻게 지낼까?</p><br>
+        <p>그칠 줄 모르고 이렇게 하염없이 비가</p><br>
+        <p>오는 날에는</p><br>
+        <p>죽도록 사랑하다가 문득 헤어진 사람들은 </p><br>
+        <p>어떻게 지낼까?  </p><br>
+        <!-- https://www.judiciary.gov.sg/family -->
+      </div><br>
+      <!-- <header class="w3-container w3-padding-64 w3-xlarge w3-center w3-margin-top" id="poem2">
+        <h1 class="w3-jumbo"><span class="w3-hide-small">손가락</h1>
+        <p class="w3-right w3-padding-large">프뢰벨 저</p>
+      </header> -->
 
-        <!-- About Section -->
-        <div class="w3-content w3-justify w3-large w3-padding-large" id="about">
-          <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris
-            nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim
-            id est laborum consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </div><br>
+      <!-- <div class="w3-content w3-justify w3-xlarge w3-padding-large w3-center w3-margin-bottom" id="content2">
+        <p>이 손가락</p>
+        <p>맘 좋은 아빠 손가락</p><br>
+        <p>이 손가락</p>
+        <p>상냥한 엄마 손가락</p><br>
+        <p>이 손가락</p>
+        <p>멋쟁이 언니 손가락</p><br>
+        <p>이 손가락</p>
+        <p>씩씩한 아우 손가락</p><br>
+        <p>이 손가락</p>
+        <p>귀여운 아기 손가락</p><br>
+        <p>오손도손</p>
+        <p>정다운 한 집안 식구</p><br><br><br><br><br>
+      </div><br>
     </div>
+    <header class="w3-container w3-padding-64 w3-xlarge w3-center w3-margin-top" id="poem3">
+      <h1 class="w3-jumbo"><span class="w3-hide-small">시골 길</h1>
+      <p class="w3-right w3-padding-large"></p>
+    </header>
+
+    <div class="w3-content w3-justify w3-xlarge w3-padding-large w3-center w3-margin-bottom" id="content3">
+      <p>할머니 집 가는 시골길</p>
+      <p>차를 타면</p>
+      <p>엉덩이가 콩, 엉덩이가 콩.</p><br>
+      <p>할머니 집 가는 시골 길은</p>
+      <p>머리가 콩, 머리가 콩.</p><br>
+      <p>할머니 집 가는 시골 길은</p>
+      <p>울퉁불퉁 길.</p><br>
+      <p>엉덩이가 콩.</p>
+      <p>머리가 콩.</p>
+      <p>재미있는 길.</p><br><br><br><br><br>
+    </div><br> -->
+</div>
     <!-- End Contact Section -->
 
     <!-- Footer -->
@@ -168,23 +206,23 @@
       </p>
       <div class="footerContainer">
         <div class="item">
-          <img src="src/photos/주안.png" width="100" height="100">
+          <img src="../src/photos/주안.png" width="100" height="100">
           <p><h6>강주안</a></h6>
         </div>
         <div class="item">
-          <img src="src/photos/수아.jpeg" width="100" height="100">
+          <img src="../src/photos/수아.jpeg" width="100" height="100">
           <p><h6>김수아</a></h6>
         </div>
         <div class="item">
-          <img src="src/photos/시은.jpeg" width="100" height="100">
+          <img src="../src/photos/시은.jpeg" width="100" height="100">
           <p><h6>김시은</h6> </p>
         </div>
         <div class="item">
-          <img src="src/photos/예빈.gif" width="100" height="100">
+          <img src="../src/photos/예빈.gif" width="100" height="100">
           <p><h6>김예빈</h6></p>
         </div>
         <div class="item">
-          <img src="src/photos/소은.jpeg" width="100" height="100">
+          <img src="../src/photos/소은.jpeg" width="100" height="100">
           <p><h6>유소은</h6></p>
         </div>
     </footer>
@@ -204,6 +242,15 @@
 
     function doDisplay2() {
       var con = document.getElementById("myCateBar");
+      if (con.style.display == 'none') {
+        con.style.display = 'block';
+      } else {
+        con.style.display = 'none';
+      }
+    }
+
+    function doDisplay3() {
+      var con = document.getElementById("mySpeedBar");
       if (con.style.display == 'none') {
         con.style.display = 'block';
       } else {

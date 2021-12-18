@@ -95,20 +95,15 @@
         <i class="fa fa-arrow-left w3-xxlarge"></i>
         <p>뒤로가기</p>
       </a>
-      <a href="javascript:void(0)" onclick="doDisplay()" class="w3-bar-item w3-button w3-padding-large w3-sand">
+      <a class="w3-bar-item w3-button w3-padding-large w3-sand">
         <i class="fa fa-forward w3-xxlarge"></i>
         <p>속도 조절</p>
       </a>
-      <div class="w3-bar-block w3-center" id="mySpeedBar">
-        <a class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="speedturn10()">X 1.0</a>
-        <a class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="speedturn15()">X 1.5</a>
-        <a class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="speedturn20()">X 2.0</a>
-      </div>
       <a href="./index.html" class="w3-bar-item w3-button w3-padding-large w3-sand">
         <i class="fa fa-home w3-xxlarge"></i>
         <p>홈으로</p>
       </a>
-      <a href="javascript:void(0)" onclick="doDisplay2()" class="w3-bar-item w3-button w3-padding-large w3-sand">
+      <a href="javascript:void(0)" onclick="doDisplay()" class="w3-bar-item w3-button w3-padding-large w3-sand">
         <i class="fa fa-bars w3-xxlarge"></i>
         <p>카테고리</p>
       </a>
@@ -116,6 +111,7 @@
         <a href="./children-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">동시</a>
         <a href="./artistic-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">교술시</a>
         <a href="./lyric-poem.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">서정시</a>
+        <!-- <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">국가</a> -->
       </div>
       <a href="#" class="w3-bar-item w3-button w3-padding-large w3-sand">
         <i class="fa fa-refresh w3-xxlarge"></i>
@@ -194,15 +190,6 @@
 
   <script>
     function doDisplay() {
-      var con = document.getElementById("mySpeedBar");
-      if (con.style.display == 'none') {
-        con.style.display = 'block';
-      } else {
-        con.style.display = 'none';
-      }
-    }
-
-    function doDisplay2() {
       var con = document.getElementById("myCateBar");
       if (con.style.display == 'none') {
         con.style.display = 'block';
@@ -288,7 +275,6 @@
         });
       }, 200);
     }
-
     function removeSubmenu() {
       let subMenu = nav.querySelector(".sub-menu");
       let subMenuItemList = [...subMenu.children[0].children];
@@ -301,34 +287,6 @@
           nav.removeChild(subMenu);
         }, 500);
       }
-    }
-
-    // + page auto scroll script
-    function pageScroll() {
-      window.scrollBy(0, 1);
-      scrolldelay = setTimeout('pageScroll()', 30);
-    }
-
-    // + page auto scroll speedturn script
-    function speedturn10() {
-      clearTimeout(scrolldelay)
-
-      window.scrollBy(0, 1);
-      scrolldelay = setTimeout('speedturn10()', 30);
-    }
-
-    function speedturn15() {
-      clearTimeout(scrolldelay)
-
-      window.scrollBy(0, 1);
-      scrolldelay = setTimeout('speedturn15()', 20);
-    }
-
-    function speedturn20() {
-      clearTimeout(scrolldelay)
-
-      window.scrollBy(0, 1);
-      scrolldelay = setTimeout('speedturn20()', 15);
     }
   </script>
   </div>

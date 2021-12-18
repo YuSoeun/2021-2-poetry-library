@@ -1,0 +1,18 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.781ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 2919.7 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">10,000</title>
+<defs aria-hidden="true">
+<path stroke-width="1" id="E1-STIXWEBMAIN-31" d="M394 0h-276v15c74 4 95 25 95 80v449c0 34 -9 49 -30 49c-10 0 -27 -5 -45 -12l-27 -10v14l179 91l9 -3v-597c0 -43 20 -61 95 -61v-15Z"></path>
+<path stroke-width="1" id="E1-STIXWEBMAIN-30" d="M476 330c0 -172 -63 -344 -226 -344c-171 0 -226 186 -226 350c0 177 69 340 230 340c131 0 222 -141 222 -346zM380 325c0 208 -44 325 -132 325c-83 0 -128 -118 -128 -321s44 -317 130 -317c85 0 130 115 130 313Z"></path>
+<path stroke-width="1" id="E1-STIXWEBMAIN-2C" d="M83 -141l-10 19c55 37 83 74 83 107c0 7 -6 13 -14 13s-18 -4 -29 -4c-37 0 -58 17 -58 51s24 57 60 57c45 0 80 -35 80 -87c0 -60 -43 -123 -112 -156Z"></path>
+</defs>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#E1-STIXWEBMAIN-31"></use>
+ <use xlink:href="#E1-STIXWEBMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#E1-STIXWEBMAIN-2C" x="1001" y="0"></use>
+<g transform="translate(1418,0)">
+ <use xlink:href="#E1-STIXWEBMAIN-30"></use>
+ <use xlink:href="#E1-STIXWEBMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#E1-STIXWEBMAIN-30" x="1001" y="0"></use>
+</g>
+</g>
+</svg>
